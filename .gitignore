@@ -1,3 +1,4 @@
 done.*
 todo.*
 venv/
+__pycache__/
