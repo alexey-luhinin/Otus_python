@@ -48,11 +48,11 @@ class Car(Vehicle):
         if distance < 0:
             raise PositiveError(distance)
 
-        print('Tesla is move')
+        print(f'{self.name} is move')
         self._mileage += distance
 
     def make_a_sound(self):
-        print('Silent')
+        print('Car sound')
 
     def __str__(self):
         return f'Car(Name = {self.name}, '\
