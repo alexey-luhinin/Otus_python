@@ -34,15 +34,16 @@ class PassengerCar(Car):
             print('Engine already is off')
 
     def move(self, fuel_per_km: float, distance: float):
+        super().move(distance)
         if self._tank.volume - fuel_per_km * distance <= 0:
             raise PositiveError('Not enough fuel in the car')
-        print('Car starting moving')
         self._tank.volume -= fuel_per_km * distance
         print(f'Car moved {distance} km, spend fuel {fuel_per_km * distance}')
 
-
     def refueling(self, fuel):
+        '''refueling'''
         print('Refueling...')
+        print(f'Filled {fuel} liters')
         self._tank.add_fuel(fuel)
 
 
@@ -53,6 +54,8 @@ if __name__ == '__main__':
                             'Mersedes', 2000, 500, 1990, 400000)
     print(mersedes)
     mersedes.start_car()
+    print('Mileage:', mersedes.mileage)
     mersedes.move(0.3, 10)
+    print('Mileage:', mersedes.mileage)
     mersedes.stop_car()
     mersedes.refueling(30)
