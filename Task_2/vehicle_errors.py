@@ -39,13 +39,11 @@ class ModelTypeError(TypeError):
 
 class PositiveError(ValueError):
     '''PositiveError'''
-    def __init__(self, value, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.__value = value
-
-    def __str__(self):
-        return f'Value can\'t be negative. Input {self.__value}'
 
 
 class EmptyStringError(ValueError):
     '''EmptyStringError'''
+
+
+class TankOverflowError(Exception):
+    '''TankOverflowError'''
