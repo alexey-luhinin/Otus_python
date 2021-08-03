@@ -1,5 +1,6 @@
 '''Vehicle'''
 from abc import ABC, abstractmethod
+from vehicle_errors import WeightTypeError
 
 
 class Vehicle(ABC):
@@ -32,6 +33,9 @@ class Vehicle(ABC):
 
     @weight.setter
     def weight(self, weight):
+        if not isinstance(self.weight, float):
+            raise WeightTypeError
+
         self._weight = weight
 
     @property
@@ -53,13 +57,8 @@ class Vehicle(ABC):
         self._production_year = production_year
 
     @abstractmethod
-    def start_engine(self):
-        '''Start engine'''
-        raise NotImplementedError
-
-    @abstractmethod
-    def turn_off_engine(self):
-        '''Turn off engine'''
+    def move(self, distance: float):
+        '''Move'''
         raise NotImplementedError
 
     @abstractmethod
