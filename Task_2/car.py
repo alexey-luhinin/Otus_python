@@ -41,10 +41,6 @@ class Car(Vehicle):
         '''vin getter'''
         return self._vin
 
-    def start_engine(self):
-        '''Start engine'''
-        print('Tesla is ready to move')
-
     def move(self, distance: float):
         if not isinstance(distance, (int, float)):
             raise DistanceTypeError
@@ -54,10 +50,6 @@ class Car(Vehicle):
 
         print('Tesla is move')
         self._mileage += distance
-
-    def turn_off_engine(self):
-        '''Turn off engine'''
-        print('Tesla off now')
 
     def make_a_sound(self):
         print('Silent')
