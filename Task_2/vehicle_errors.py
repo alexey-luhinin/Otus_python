@@ -17,6 +17,10 @@ class DistanceTypeError(TypeError):
     '''DistanceTypeError'''
 
 
+class MaxHeighTypeError(TypeError):
+    '''MaxHeighTypeError'''
+
+
 class ProductionYearTypeError(TypeError):
     '''ProductionYearTypeError'''
 
