@@ -13,6 +13,10 @@ class MileageTypeError(TypeError):
     '''MileageTypeError'''
 
 
+class DistanceTypeError(TypeError):
+    '''DistanceTypeError'''
+
+
 class ProductionYearTypeError(TypeError):
     '''ProductionYearTypeError'''
 
