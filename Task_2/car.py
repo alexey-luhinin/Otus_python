@@ -1,6 +1,10 @@
 '''Car'''
 from vehicle import Vehicle
-from vehicle_errors import ModelTypeError, VinTypeError, EmptyStringError
+from vehicle_errors import (ModelTypeError,
+                            PositiveError,
+                            VinTypeError,
+                            EmptyStringError,
+                            DistanceTypeError)
 
 
 class Car(Vehicle):
@@ -42,6 +46,12 @@ class Car(Vehicle):
         print('Tesla is ready to move')
 
     def move(self, distance: float):
+        if not isinstance(distance, (int, float)):
+            raise DistanceTypeError
+
+        if distance < 0:
+            raise PositiveError(distance)
+
         print('Tesla is move')
         self._mileage += distance
 
@@ -64,4 +74,6 @@ if __name__ == '__main__':
     tesla = Car('Model S', 'VK12323541', 'Tesla', 2000, 300, 2010, 100)
     volga = Car('Black', 'Volga123', 'Volga', 3000, 200, 1990, 500)
     print(tesla)
+    tesla.move(25)
+    print(tesla.mileage)
     print(volga)
