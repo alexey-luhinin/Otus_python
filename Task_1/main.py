@@ -49,10 +49,17 @@ def even_odd_prime(numbers: List[int], type_of_out='prime') -> List[int]:
 
 def trace(func):
     '''Trace decorator'''
+    func.level = 0
     @wraps(func)
     def wrapper(*args, **kwargs):
-        print('-> {}({})'.format(func.__name__, *args))
-        return func(*args, **kwargs)
+        func.level += 1
+        print('--' * func.level, '> {}({})'.format(func.__name__, *args),
+              sep='')
+        res = func(*args, **kwargs)
+        func.level -= 1
+        print('<', '--' * func.level, ' {}({})'.format(func.__name__, *args),
+              sep='')
+        return res
     return wrapper
 
 
